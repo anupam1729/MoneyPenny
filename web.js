@@ -19,6 +19,7 @@ app.get('/', function (request, response) {
 
 app.get('/Quote', function (request, response) {
     request.setTimeout(300000);
+    response.setTimeout(300000);
             var finalCSVString = "";
             var timeNow = moment();
 
