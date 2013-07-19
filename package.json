@@ -21,6 +21,10 @@
     "type": "git",
     "url": "https://github.com/moment/moment"
   },
+      "repository": {
+    "type": "git",
+    "url": "https://github.com/caolan/async"
+  },
   "keywords": [
     "node",
     "heroku"
