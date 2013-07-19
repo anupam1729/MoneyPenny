@@ -1,7 +1,6 @@
 var express = require('express');
 var fs = require('fs');
-var iciciquote = require("./GetICICIQuote");
-var fs = require('fs');
+var iciciquote = require("GetICICIQuote");
 var async = require('async');
 var moment = require('moment');
 
