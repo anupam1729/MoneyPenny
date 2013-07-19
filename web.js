@@ -12,10 +12,14 @@ app.get('/', function (request, response) {
  
     });
 
+});
+
+
+app.get('/Quote', function (request, response) {
+    response.send('wip');
 
 });
 
 var port = process.env.PORT || 5000;
 app.listen(port, function() {
   console.log("Listening on " + port);
-});
