@@ -21,11 +21,10 @@ async.forEach(symbolsArray,
             callback();
         });
     },
-     function () {
-         //var jsonString = JSON.stringify(foo);
+     function () {         
          console.log("..." + finalCSVString);
-         //fs.writeFile("test.csv", finalCSVString);
-         //console.log("took " + moment().diff(timeNow));
+         fs.writeFile("test.csv", finalCSVString);
+         console.log("took " + moment().diff(timeNow));
      }
 );
 
