@@ -1,6 +1,21 @@
-#!/usr/bin/env node
+var express = require('express');
 var fs = require('fs');
-var outfile = "hello.txt";
-var out = "A startup is a business built to grow rapidly.\n";
-fs.writeFileSync(outfile, out);  
-console.log("Script: " + __filename + "\nWrote: " + out + "To: " + outfile);
+
+var app = express.createServer(express.logger());
+
+app.get('/', function (request, response) {
+
+    var fs = require('fs');
+    fs.readFile('index.html', function (err, data) {
+        if (err) throw err;
+        response.send(data.toString());
+ 
+    });
+
+
+});
+
+var port = process.env.PORT || 5000;
+app.listen(port, function() {
+  console.log("Listening on " + port);
+});
