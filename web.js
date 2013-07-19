@@ -2,7 +2,7 @@ var express = require('express');
 var fs = require('fs');
 var moment = require('moment');
 var async = require('async');
-var iciciquote = require("./GetICICIQuote");
+var iciciquote = require("./GetICICIQuote.js");
 
 var app = express.createServer(express.logger());
 
