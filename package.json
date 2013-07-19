@@ -17,6 +17,10 @@
     "type": "git",
     "url": "https://github.com/heroku/node-js-sample"
   },
+    "repository": {
+    "type": "git",
+    "url": "https://github.com/moment/moment"
+  },
   "keywords": [
     "node",
     "heroku"
