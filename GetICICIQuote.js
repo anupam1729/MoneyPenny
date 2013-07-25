@@ -8,7 +8,16 @@ module.exports.returnQuoteJSON = function (symbol, cb) {
     jsdom.env(url, function (Err, window) {
         console.log(symbol);
         //console.log(moment());
+        if (window == null || window.document == null) {
+                cb(null); 
+                return;
+            }
         var projectionNode = window.document.getElementsByClassName('projection')[1];
+        if (projectionNode == null) {
+                cb(null); 
+                return;
+            }
+
         var lastTradePrice_NSE = projectionNode.getElementsByTagName('tr')[1].getElementsByTagName('td')[1].innerHTML.replace(/,/g, "");
         var lastTradeDate_NSE = projectionNode.getElementsByTagName('tr')[1].getElementsByTagName('td')[4].innerHTML.replace(/,/g, "");
         var lastTradeTime_NSE = projectionNode.getElementsByTagName('tr')[2].getElementsByTagName('td')[4].innerHTML.replace(/,/g, "");

@@ -20,17 +20,19 @@ app.get('/', function (request, response) {
 app.get('/Quote', function (request, response) {
     request.setTimeout(300000);
     response.setTimeout(300000);
-            var finalCSVString = "";
-            var timeNow = moment();
+    var finalCSVString = "";
+    var timeNow = moment();
 
-            var fs = require('fs');
-            var symbolsArray = fs.readFileSync('futureslist.tls').toString().split("\r\n");
+    var fs = require('fs');
+    var symbolsArray = fs.readFileSync('futureslist.tls').toString().split("\r\n");
 
-            async.forEach(symbolsArray,
+    async.forEach(symbolsArray,
             function (symbol, callback) {
                 //console.log("!!!" + symbol);
                 iciciquote.returnQuoteJSON(symbol, function (foo) {
-                    finalCSVString += foo.Symbol + "," + (moment(foo.LastTradeDate, 'DD-MMM-YYYY')).format('YYYYMMDD') + "," + foo.DayOpen + "," + foo.DayHigh + "," + foo.DayLow + "," + foo.LastTradePrice + "," + foo.Volume + "," + foo.PrevDayClose + "\r\n";
+                    if (foo != null) {
+                        finalCSVString += foo.Symbol + "," + (moment(foo.LastTradeDate, 'DD-MMM-YYYY')).format('YYYYMMDD') + "," + foo.DayOpen + "," + foo.DayHigh + "," + foo.DayLow + "," + foo.LastTradePrice + "," + foo.Volume + "," + foo.PrevDayClose + "\r\n";
+                    }
                     callback();
                 });
             },
